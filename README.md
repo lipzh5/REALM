@@ -7,7 +7,7 @@
 
 
 <div align="center">
-  <video src="docs/static/videos/realm_demo_with_audio.mp4.mp4" width="80%" controls></video>
+  <video src="docs/static/videos/realm_demo_with_audio.mp4" width="80%" controls></video>
 </div>
 
 This is the official PyTorch implementation for **REALM** (Reactive Embodied Audio-driven Listening Model). 
