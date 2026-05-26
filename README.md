@@ -15,9 +15,9 @@ This is the official PyTorch implementation for **REALM** (Reactive Embodied Aud
 **REALM** is a coarse-to-fine generative framework that synthesizes lifelike, reactive listener motions driven purely by speaker audio. Unlike existing methods that treat listening as an active generation task—which often results in unnatural deviation and expression over-smoothing—REALM explicitly models natural cognitive delays, enforces realistic quiescent states, and disentangles smooth head trajectories from rapid facial micro-expressions. We validate our approach by successfully deploying these synthesized motions directly onto the **Ameca humanoid robot**.
 
 ### ✨ Core Contributions
-* **Reactive Gated Fusion:** Utilizes a shifted ALiBi mechanism and dynamic gating to explicitly model cognitive reaction delays ($\tau$). By balancing the speaker's acoustic trigger against the listener's motion history, it prevents unnatural deviations from the ground-truth manifold.
+* **Reactive Gated Fusion:** Utilizes a shifted ALiBi mechanism and dynamic gating to explicitly model cognitive reaction delays (τ). By balancing the speaker's acoustic trigger against the listener's motion history, it prevents unnatural deviations from the ground-truth manifold.
 * **Coarse-to-Fine Stochastic Refinement:** Decouples smooth, low-frequency head poses from high-frequency facial dynamics. By injecting audio-modulated stochastic noise into the refinement stage, it overcomes deterministic over-smoothing to synthesize lifelike, rapid micro-expressions.
-* **Physical Embodiment Pipeline:** Features an inverse kinematic mapping ($\mathbf{q} = \Phi^{-1}(\cdot)$) to translate abstract generative coefficients into hardware-safe control values, bridging the gap between digital avatars and physically embodied agents.
+* **Physical Embodiment Pipeline:** Features an inverse kinematic mapping (**q** = Φ⁻¹(·)) to translate abstract generative coefficients into hardware-safe control values, bridging the gap between digital avatars and physically embodied agents.
 
 ---
 
