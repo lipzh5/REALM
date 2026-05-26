@@ -23,7 +23,7 @@ This is the official PyTorch implementation for **REALM** (Reactive Embodied Aud
 
 1. Clone the repository:
 ```bash
-git clone [https://github.com/lipzh5/REALM.git](https://github.com/lipzh5/REALM.git)
+git clone https://github.com/lipzh5/REALM.git
 cd REALM
 ```
 
