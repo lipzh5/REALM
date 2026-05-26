@@ -23,19 +23,21 @@ This is the official PyTorch implementation for **REALM** (Reactive Embodied Aud
 
 ## ⚙️ Installation
 
-1. Clone the repository:
-```bash
+1. **Get the code:**
 
-git clone [https://github.com/anonymous-repo/REALM.git](https://github.com/anonymous-repo/REALM.git)
-cd REALM
-```
+    Since this repository is anonymized for double-blind review, `git clone` is disabled. Please click the **Download** button at the top of this page to download the source code as a `.zip` file, and extract it to your local machine.
+
+    ```Bash
+    cd REALM-main  # Or the name of the extracted directory
+    ```
+
 2. Create and activate the conda environment directly from the provided configuration file:
 
-```Bash
-conda create -n realm python=3.10
-conda activate realm
-pip install -r requirements.txt
-```
+    ```Bash
+    conda create -n realm python=3.10
+    conda activate realm
+    pip install -r requirements.txt
+    ```
 
 ## 🗄️ Data Preparation
 Please refer to the data preparation process outlined in the [ViCo Challenge Baseline repository](https://github.com/dc3ea9f/vico_challenge_baseline).
