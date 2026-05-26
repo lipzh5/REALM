@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="REALM: A Coarse-to-Fine Generative Framework for Embodied Reactive Listening">
+  <meta property="og:title" content="REALM: Embodied Reactive Listening"/>
+  <meta property="og:description" content="A generative framework for audio-driven reactive listening deployed on humanoid robots."/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta property="og:image" content="static/images/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="REALM: Embodied Reactive Listening">
+  <meta name="twitter:description" content="A generative framework for audio-driven reactive listening deployed on humanoid robots.">
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="REALM, Conversational AI, Humanoid Robot, Reactive Listening, Audio-driven Animation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>REALM: A Coarse-to-Fine Generative Framework for Embodied Reactive Listening</title>
+  
+  <link rel="icon" type="image/x-icon" href="static/images/ameca_favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+
+  <style>
+    .small-sup { font-size: 0.6em; }
+    .institution-logo { margin-top: 20px; max-width: 175px; }
+    .image-container { display: flex; justify-content: center; gap: 20px; }
+    .image-container figure { text-align: center; }
+    .image-container figcaption { margin-top: 8px; }
+    
+    .content {
+      max-width: 100%;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .image-container img {
+      margin-top: 15px;
+      flex-basis: 100%;
+      object-fit: cover;
+    }
+
+    .single-image {
+      flex-basis: 100%;
+      margin-top: 20px;
+    }
+
+    .video-container { display: flex; }
+    .video {
+      position: relative;
+      width: 500px;
+      margin-right: 20px;
+    }
+    
+    .video:last-child { margin-right: 0; }
+    video { width: 100%; height: auto; }
+    
+    .watermark {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 5px;
+      font-size: 14px;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">REALM: A Coarse-to-Fine Generative Framework<br>for Embodied Reactive Listening</h1>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+               <span class="link-block">
+                <a href="https://github.com/pi3-141592653/REALM" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/realm_demo_with_audio.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <div class="content has-text-centered">
+          <div class="content has-text-justified">
+            <strong>REALM</strong> synthesizes lifelike, reactive listener motions driven purely by speaker audio. As demonstrated on the Ameca humanoid robot above, our coarse-to-fine framework successfully models natural reaction delays and disentangles smooth head trajectories from rapid facial micro-expressions.
+          </div>
+        </div>
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Generating responsive listener facial motion is a fundamental challenge in dyadic interactions, carrying profound implications for embodied conversational AI. However, existing approaches face two primary limitations. First, they fail to model listening as a fundamentally reactive process, often disregarding natural reaction delays and historical motion context. Because active speakers produce pronounced signals while listeners remain predominantly quiescent, lacking a mechanism to reconcile these distinct behavioral profiles causes generated motions to unnaturally deviate from the listener's ground truth. Second, they ignore varying temporal scales, failing to separate smooth head movements from rapid facial expressions.
+            To address these issues, we propose <strong>REALM</strong> (<strong>R</strong>eactive <strong>E</strong>mbodied <strong>A</strong>udio-driven <strong>L</strong>istening <strong>M</strong>odel), a coarse-to-fine generative framework explicitly designed for audio-driven reactive listening. To capture this reactive nature and prevent unnatural deviation, we introduce a Reactive Gated Speaker-Listener Fusion module. It leverages a shifted variant of Attention with Linear Biases (ALiBi) to model realistic reaction delays, while a gating mechanism dynamically balances the speaker's acoustic trigger against the listener's motion history. To resolve temporal scale mismatches, a coarse decoder establishes smooth trajectories for head pose and expressions, followed by a refinement module that injects audio-modulated stochastic noise into expression features to synthesize lifelike, high-frequency subtleties.
+            Extensive evaluations demonstrate that REALM outperforms state-of-the-art baselines in both distributional realism and temporal synchrony. Finally, we validate our model's physical viability by deploying the synthesized motions onto a humanoid robot, bridging the gap between digital avatars and physically embodied agents.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="image-container">
+        <figure>
+          <img src="static/images/challenges.png" alt="challenges" class="single-image",style="width: 80%">
+          <figcaption> 
+            <div class="content has-text-centered">
+              <div class="content has-text-justified">
+               <strong>Core challenges in responsive listener motion generation.</strong>
+                  <strong>(a) Natural Reaction Delay:</strong> Listening is a fundamentally reactive process characterized by an inherent temporal delay (\(\tau\)) between the speaker's acoustic stimulus and the listener's response.
+                  <strong>(b) Distinct Behavioral Patterns:</strong> Active speakers produce pronounced signals, while listeners exhibit predominantly quiescent resting behaviors. Driven purely by the acoustic stimulus from the speaker, the generated motion deviates from the ground-truth manifold, resulting in an unnatural deviation (red dashed line).
+                 <strong>(c) Varying Temporal Scales:</strong> Facial dynamics operate at distinct frequencies. Smooth, overall head poses (\(r^{(i)}\)) must be disentangled from rapid, high-frequency facial expressions (\(x^{(j)}\)) to prevent over-smoothing.
+               
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3"><strong>REALM</strong> (<strong>R</strong>eactive <strong>E</strong>mbodied <strong>A</strong>udio-driven <strong>L</strong>istening <strong>M</strong>odel)</h2>
+      <div class="image-container">
+        <figure>
+          <img src="static/images/system_overview.png" alt="system overview" class="single-image", style="width: 80%">
+          <figcaption>
+            <div class="content has-text-centered">
+              <div class="content has-text-justified">
+                <strong>Overview of the REALM framework.</strong> The system ingests speaker audio ($\mathbf{A}$) and listener motion history ($\mathbf{H}$). It consists of a Reactive Gated Speaker-Listener Fusion module to model reaction delays, a coarse-to-fine motion refinement module to resolve varying temporal scales, and a physical grounding pipeline for robotic embodiment.
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </div> 
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Robotic Embodiment</h2>
+      <div class="image-container">
+        <figure>
+          <img src="static/images/robot_results.png" alt="robot results" style="width: 80%">
+          <figcaption>
+            <div class="content has-text-centered">
+              <div class="content has-text-justified">
+                <strong>Qualitative comparison of physical embodiment on the Ameca robot.</strong> To illustrate the performance observed across the ViCo test set, we visualize two representative video sequences (frames $t_1, t_2, t_3$ and $t_1', t_2', t_3'$) comparing the reactive listener motion generated by our method (REALM) against the human Ground Truth and the ListenFormer [Liu et al., 2024] baseline. Driven by the speaker's context (Top Row), ListenFormer frequently suffers from deterministic over-smoothing, failing to synthesize intended expressions such as a conversational smile or a natural blink (highlighted in <span style="color: red; font-weight: bold;">red</span>). In contrast, REALM effectively anchors the listener to their natural reactive manifold, accurately recovering contextually appropriate expressions and subtle stochastic micro-dynamics (e.g., smiling and blinking, highlighted in <span style="color: green; font-weight: bold;">green</span>) that closely match the human Ground Truth.
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

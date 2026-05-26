@@ -1,0 +1,69 @@
+
+model:
+  window_size: 16
+  max_listener_window: 1  # history windows
+  overlap_window: 0  
+
+  audio_dim: 768 # 768 + 39 
+  motion_dim: 70
+  exp_dim: 64
+  refine_dim: 64
+  feature_dim: 128
+  pred_delta_motion: True
+  fusion_delay_frames: 8
+    
+
+train:
+  base_epochs: 200
+  refine_epochs: 50
+  save_epochs: 50
+  lr: 2e-3
+  lr_policy: cosine  # step or cosine
+  step_scheduler_params:
+    step_size: 200
+    gamma: 0.5
+    last_epoch: -1
+  
+  batch_size: 512
+  num_workers: 16
+  warmup_ratio: 0.1
+  grad_accu_steps: 1
+  ckpt_folder: 'save/checkpoints'
+  teacher_forcing: False
+  cal_trend_match_loss: False
+  cal_var_loss: True
+  cal_weighted_semantic_loss: False
+  cal_frequency_loss: False
+  frequency_loss_indices: [] # [64, 65, 66, 67, 68, 69]  # [64, 65, 66]
+  cal_boundary_loss: True
+  bootstrap_zeros: False  # boostrap with zeros, rather than the gt listener
+
+
+  # spiky_loss_ver: 1  # default: 1
+  loss_weights:
+    fre: 5.0
+    exp: 1.0
+    rot: 5.0  # 0.5  # Head rotation is high-impact
+    rot_axis: [2.0, 2.0, 1.0] # axis-specific weight: Pitch/yaw/roll
+    crop: 1.0
+    tran: 1.0
+    boundary: 5.0
+    wp: 1.0
+    boundary_rot: 1.0
+    boundary_exp: 0.5
+    boundary_trans: 0.1
+  
+
+
+data:
+  dataset: vico
+  speaker_audio_only: True
+  fix_clip: True
+  zero_padding: True
+  load_sentiment: False
+  data_root: ../../data
+  # n_classes: 3  # for sentiment analysis
+  motion_length: 70
+  normalize_3dmm: standard
+  clip_length: 128   # n * 8, 640/80
+  stride: 4
