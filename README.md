@@ -1,6 +1,6 @@
 # REALM: A Coarse-to-Fine Generative Framework for Embodied Reactive Listening
 
-<!-- [![Venue](https://img.shields.io/badge/NeurIPS-2026-blue.svg)](https://neurips.cc/) -->
+
 [![Status](https://img.shields.io/badge/Status-Under_Review-yellow.svg)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C.svg)](https://pytorch.org/)
@@ -9,6 +9,7 @@
 <div align="center">
   <video src="docs/static/videos/realm_demo_with_audio.mp4" width="80%" controls></video>
 </div>
+<br>
 
 This is the official PyTorch implementation for **REALM** (Reactive Embodied Audio-driven Listening Model). 
 
