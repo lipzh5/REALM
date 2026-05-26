@@ -25,7 +25,7 @@ This is the official PyTorch implementation for **REALM** (Reactive Embodied Aud
 
 1. **Get the code:**
 
-    Since this repository is anonymized for double-blind review, `git clone` is disabled. Please click the **Download** button at the top of this page to download the source code as a `.zip` file, and extract it to your local machine.
+    Since this repository is anonymized for double-blind review, `git clone` is disabled. Please click the **ZIP** button at the top of this page to download the source code as a `.zip` file, and extract it to your local machine.
 
     ```Bash
     cd REALM-main  # Or the name of the extracted directory
