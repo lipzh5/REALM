@@ -5,9 +5,13 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C.svg)](https://pytorch.org/)
 
+
+<div align="center">
+  <video src="docs/static/videos/realm_demo_with_audio.mp4.mp4" width="80%" controls></video>
+</div>
+
 This is the official PyTorch implementation for **REALM** (Reactive Embodied Audio-driven Listening Model). 
 
-**[Project Page](https://anonymous.4open.science/w/REALM-3DCC/) | [Paper](#) | [Demo Video](docs/static/videos/realm_demo_with_audio.mp4) | [Pre-trained Models](#)**
 
 ## 📖 Overview
 **REALM** (Reactive Embodied Audio-driven Listening Model) is a coarse-to-fine generative framework that synthesizes lifelike, reactive listener motions driven purely by speaker audio. Unlike existing methods that treat listening as an active generation task—which often results in unnatural deviation and expression over-smoothing—REALM explicitly models natural cognitive delays, enforces realistic quiescent states, and disentangles smooth head trajectories from rapid facial micro-expressions. We validate our approach by successfully deploying these synthesized motions directly onto the **Ameca humanoid robot**.
