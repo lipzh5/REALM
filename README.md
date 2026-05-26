@@ -7,7 +7,7 @@
 
 
 <div align="center">
-  <video src="docs/static/videos/realm_demo_with_audio.mp4" width="80%" controls></video>
+  <video src="docs/static/videos/realm_demo_with_audio.mp4" width="65%" controls></video>
 </div>
 <br>
 
