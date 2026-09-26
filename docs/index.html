@@ -132,9 +132,11 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Generating responsive listener facial motion is a fundamental challenge in dyadic interactions, carrying profound implications for embodied conversational AI. However, existing approaches face two primary limitations. First, they fail to model listening as a fundamentally reactive process, often disregarding natural reaction delays and historical motion context. Because active speakers produce pronounced signals while listeners remain predominantly quiescent, lacking a mechanism to reconcile these distinct behavioral profiles causes generated motions to unnaturally deviate from the listener's ground truth. Second, they ignore varying temporal scales, failing to separate smooth head movements from rapid facial expressions.
-            To address these issues, we propose <strong>REALM</strong> (<strong>R</strong>eactive <strong>E</strong>mbodied <strong>A</strong>udio-driven <strong>L</strong>istening <strong>M</strong>odel), a coarse-to-fine generative framework explicitly designed for audio-driven reactive listening. To capture this reactive nature and prevent unnatural deviation, we introduce a Reactive Gated Speaker-Listener Fusion module. It leverages a shifted variant of Attention with Linear Biases (ALiBi) to model realistic reaction delays, while a gating mechanism dynamically balances the speaker's acoustic trigger against the listener's motion history. To resolve temporal scale mismatches, a coarse decoder establishes smooth trajectories for head pose and expressions, followed by a refinement module that injects audio-modulated stochastic noise into expression features to synthesize lifelike, high-frequency subtleties.
-            Extensive evaluations demonstrate that REALM outperforms state-of-the-art baselines in both distributional realism and temporal synchrony. Finally, we validate our model's physical viability by deploying the synthesized motions onto a humanoid robot, bridging the gap between digital avatars and physically embodied agents.
+          Generating responsive listener facial motion is an important task for embodied conversational AI. 
+          Two modeling challenges are central: accounting for the timing of speaker cues while maintaining continuity with the listener's ongoing motion, and capturing locally variable facial events alongside the overall motion trajectory. 
+          Listener responses may follow preceding cues with a temporal lag, while brief expressions and blinks introduce variation that is difficult to predict deterministically. 
+          These challenges motivate a framework that combines history-aware temporal alignment with stochastic expression refinement. 
+         we propose <strong>REALM</strong> (<strong>R</strong>eactive <strong>E</strong>mbodied <strong>A</strong>udio-driven <strong>L</strong>istening <strong>M</strong>odel), a coarse-to-fine framework for audio-driven reactive listening. A Reactive Gated Speaker--Listener Fusion module combines listener motion history with speaker audio through a delay-centered attention prior and adaptive gating. A coarse decoder predicts a base motion trajectory, which is augmented by audio-conditioned stochastic residuals in the expression subspace while retaining the coarse pose parameters. Evaluations on ViCo and L2L show improvements over the evaluated baselines across multiple motion-quality metrics. Additional analyses examine delay sensitivity, gate behavior, and blink dynamics. Finally, deployment on an Ameca humanoid robot and a perceptual user study demonstrate the applicability of the generated behavior to physical embodiment.
           </p>
         </div>
       </div>
@@ -151,11 +153,15 @@
           <figcaption> 
             <div class="content has-text-centered">
               <div class="content has-text-justified">
-               <strong>Core challenges in responsive listener motion generation.</strong>
-                  <strong>(a) Natural Reaction Delay:</strong> Listening is a fundamentally reactive process characterized by an inherent temporal delay (\(\tau\)) between the speaker's acoustic stimulus and the listener's response.
-                  <strong>(b) Distinct Behavioral Patterns:</strong> Active speakers produce pronounced signals, while listeners exhibit predominantly quiescent resting behaviors. Driven purely by the acoustic stimulus from the speaker, the generated motion deviates from the ground-truth manifold, resulting in an unnatural deviation (red dashed line).
-                 <strong>(c) Varying Temporal Scales:</strong> Facial dynamics operate at distinct frequencies. Smooth, overall head poses (\(r^{(i)}\)) must be disentangled from rapid, high-frequency facial expressions (\(x^{(j)}\)) to prevent over-smoothing.
-               
+              <strong>Motivation for responsive listener motion generation.</strong>
+              <strong>(a) Response timing:</strong> Listener responses can follow preceding
+              speaker cues with a temporal lag.
+              <strong>(b) Behavioral continuity:</strong> Speaker activity and listener
+              motion need not vary proportionally, motivating adaptive use of
+              speaker evidence and listener history.
+              <strong>(c) Motion dynamics:</strong> Overall motion trajectories can coexist
+              with brief, locally variable facial events, motivating expression
+              refinement in addition to coarse prediction.
               </div>
             </div>
           </figcaption>
