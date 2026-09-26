@@ -131,7 +131,7 @@ def train_one_epoch_base(config, train_loader, model, optimizer, scheduler, devi
 
         loss += lambda_bd * boundary_loss
         loss += lambda_wp * waypoint_loss
-        loss = loss + 10 * vel_loss
+        loss = loss + vel_loss
         if gate_alpha is not None:
             loss = loss + 0.01 * (1 - gate_alpha.mean())
     
